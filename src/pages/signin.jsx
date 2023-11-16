@@ -70,7 +70,6 @@ const Signin = () => {
                     <div className="text-white mb-3 mb-md-0">
                         Copyright © 2020. All rights reserved.
                     </div>
-
                     <div>
 
                         <MDBBtn tag='a' color='none' className='mx-3' style={{ color: 'white' }}>
