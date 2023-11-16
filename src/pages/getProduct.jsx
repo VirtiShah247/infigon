@@ -4,7 +4,7 @@ import { Products } from "../component/products";
 const Getproduct = () => {
 
     const apiUrl = 'https://dev.api.infigon.app/user/get-profile';
-    const accessToken = localStorage.getItem("access_token");
+    const accessToken = localStorage.getItem("accessToken");
 
     axios({
         url: apiUrl,
@@ -14,7 +14,7 @@ const Getproduct = () => {
     })
         .then(response => {
             // Handle the response data
-            console.log(response.data);
+            console.log("Authorization response: ",response.data);
         })
         .catch(error => {
             // Handle errors

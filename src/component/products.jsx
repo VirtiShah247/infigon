@@ -1,15 +1,13 @@
-import { Fragment, useState, useEffect, Component } from "react";
+import { Fragment, useState, useEffect } from "react";
 import {
   MDBCard,
   MDBCardBody,
   MDBCardTitle,
   MDBCardText,
-  MDBCardImage,
-  MDBBtn,
   MDBRipple
 } from 'mdb-react-ui-kit';
-import Button from "react-bootstrap/esm/Button";
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 
 export const Products = () => {
   const [data, setData] = useState([]);
@@ -17,20 +15,19 @@ export const Products = () => {
   const [loading, setLoading] = useState(false);
   let compoundMounted = true;
 
-  
+
 
   useEffect(() => {
     const getProducts = async () => {
       setLoading(true);
       try {
         const response = await fetch('https://fakestoreapi.com/products');
-        
+
         if (compoundMounted) {
           const data = await response.json();
           setData(data);
           setFilterData(data);
           setLoading(false);
-          compoundMounted = false;
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -40,7 +37,7 @@ export const Products = () => {
 
     getProducts();
 
-   
+
   }, [])
 
   const Loading = () => {
@@ -69,7 +66,7 @@ export const Products = () => {
         filterData.map((product) => {
           return (
             <Fragment>
-              <MDBCard className="col-lg-3 col-md-4 mb-5">
+              <MDBCard className="mb-5 col-md-3 col-sm-4">
                 <Link to={`/products/${product.id}`} className="text-black">
                   <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
                     <img src={product.image} height="280rem" width="220rem" fluid alt='...' />
@@ -86,6 +83,8 @@ export const Products = () => {
                 </Link>
               </MDBCard>
 
+
+
             </Fragment>
           )
         })
@@ -95,18 +94,20 @@ export const Products = () => {
 
   return (
     <Fragment>
-      <div className="container my-4">
-        <div className="row">
-          <div className="col-12">
-            <h1 className="fw-bolder text-center display-6">
-              Latest Products
-            </h1>
+      <div class="bg-gray-900 h-full text-white ">
+        <div class="container my-4">
+          <div class="row">
+            <div class="col-12">
+              <h1 class="fw-bolder text-center display-6">
+                Latest Products
+              </h1>
+            </div>
           </div>
-        </div>
-        <div className="row">
-          {
-            loading ? <Loading /> : <ShowProducts />
-          }
+          <div class="row">
+            {
+              loading ? <Loading /> : <ShowProducts />
+            }
+          </div>
         </div>
       </div>
     </Fragment>
