@@ -1,4 +1,4 @@
-import { MDBContainer, MDBCol, MDBRow, MDBBtn, MDBIcon, MDBInput } from 'mdb-react-ui-kit';
+import { MDBContainer, MDBCol, MDBRow, MDBBtn, MDBInput } from 'mdb-react-ui-kit';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Fragment, useState } from 'react';
@@ -25,7 +25,7 @@ const Signin = () => {
             });
 
             // Handle the response data as needed
-            console.log('API Response:', response.data.accessToken);
+            console.log('API Response:', response);
             localStorage.setItem("accessToken", response.data.accessToken);
             navigate('/getproduct');
 
