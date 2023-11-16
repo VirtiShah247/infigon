@@ -7,7 +7,6 @@ import {
   MDBRipple
 } from 'mdb-react-ui-kit';
 import { Link } from "react-router-dom";
-import { Button } from "@mui/material";
 
 export const Products = () => {
   const [data, setData] = useState([]);
@@ -46,10 +45,7 @@ export const Products = () => {
     </>
   }
 
-  const filterProduct = (category) => {
-    console.log("Category is ", category);
-    setFilterData(data.filter((product) => product.category === category));
-  }
+
 
   const ShowProducts = () => {
     return <Fragment>
