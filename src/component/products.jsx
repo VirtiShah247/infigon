@@ -13,7 +13,6 @@ export const Products = () => {
   const [data, setData] = useState([]);
   const [filterData, setFilterData] = useState(data);
   const [loading, setLoading] = useState(false);
-  let compoundMounted = true;
 
 
 
@@ -23,12 +22,11 @@ export const Products = () => {
       try {
         const response = await fetch('https://fakestoreapi.com/products');
 
-        if (compoundMounted) {
-          const data = await response.json();
-          setData(data);
-          setFilterData(data);
-          setLoading(false);
-        }
+        const data = await response.json();
+        setData(data);
+        setFilterData(data);
+        setLoading(false);
+
       } catch (error) {
         console.error("Error fetching data:", error);
         setLoading(false);
