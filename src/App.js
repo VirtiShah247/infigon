@@ -3,11 +3,13 @@ import SignIn from "./pages/signin";
 import Getproduct from "./pages/getProduct";
 
 function App() {
+  const token = localStorage.getItem("accessToken");
+  console.log("token", token);
   return (
     <BrowserRouter>
     <Routes>
-      <Route path='/' element = {<SignIn/>} />
       <Route path='/getproduct' element = {<Getproduct/>} />
+      <Route path='/' element = {<SignIn/>} />
     </Routes>
     </BrowserRouter>
   );

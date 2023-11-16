@@ -1,3 +1,4 @@
+import { MDBContainer, MDBCol, MDBRow, MDBBtn, MDBIcon, MDBInput, MDBCheckbox } from 'mdb-react-ui-kit';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Fragment, useState } from 'react';
@@ -36,68 +37,63 @@ const Signin = () => {
         }
     };
     return (
+
         <Fragment>
-            <div className="flex flex-1 flex-col justify-center h-screen px-6 py-12 lg:px-8 bg-gray-900 text-white">
-                <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                    <img
-                        className="mx-auto h-10 w-auto"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                        alt="Your Company"
-                    />
-                    <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight">
-                        Sign in to your account
-                    </h2>
+            <MDBContainer fluid className="p-3 my-5 h-custom">
+
+                <MDBRow>
+
+                    <MDBCol col='10' md='6'>
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid" alt="Sample image" />
+                    </MDBCol>
+
+                    <MDBCol col='4' md='6'>
+
+                        <div className="divider d-flex align-items-center my-4">
+                            <p className="text-center fw-bold mx-3 mb-0">Sign in</p>
+                        </div>
+
+                        <MDBInput wrapperClass='mb-4' id='formControlLg' type='tel' size="lg" value={detail.phoneNumber} name="phoneNumber" onChange={handleChange} />
+                        <MDBInput wrapperClass='mb-4' label='Password' id='formControlLg' type='password' size="lg" value={detail.password} name="password" onChange={handleChange} />
+
+
+                        <div className='text-center text-md-start mt-4 pt-2'>
+                            <MDBBtn className="mb-0 px-5" size='lg' onClick={handleSignIn}>Signin</MDBBtn>
+                        </div>
+
+                    </MDBCol>
+
+                </MDBRow>
+
+                <div className="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+
+                    <div className="text-white mb-3 mb-md-0">
+                        Copyright © 2020. All rights reserved.
+                    </div>
+
+                    <div>
+
+                        <MDBBtn tag='a' color='none' className='mx-3' style={{ color: 'white' }}>
+                            <MDBIcon fab icon='facebook-f' size="md" />
+                        </MDBBtn>
+
+                        <MDBBtn tag='a' color='none' className='mx-3' style={{ color: 'white' }}>
+                            <MDBIcon fab icon='twitter' size="md" />
+                        </MDBBtn>
+
+                        <MDBBtn tag='a' color='none' className='mx-3' style={{ color: 'white' }}>
+                            <MDBIcon fab icon='google' size="md" />
+                        </MDBBtn>
+
+                        <MDBBtn tag='a' color='none' className='mx-3' style={{ color: 'white' }}>
+                            <MDBIcon fab icon='linkedin-in' size="md" />
+                        </MDBBtn>
+
+                    </div>
+
                 </div>
 
-                <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form className="space-y-6">
-                        <div>
-                            <label htmlFor="phoneNumber" className="block text-sm font-medium leading-6">
-                                Phone number
-                            </label>
-                            <div className="mt-2">
-                                <input
-                                    id="phoneNumber"
-                                    name="phoneNumber"
-                                    type="tel"
-                                    required
-                                    className="block w-full rounded-md border-0 py-1.5  shadow-sm ring-1 ring-inset ring-gray-300  focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-black"
-                                    onChange={(e) => handleChange(e)}
-                                />
-                            </div>
-                        </div>
-
-                        <div>
-                            <div className="flex items-center justify-between">
-                                <label htmlFor="password" className="block text-sm font-medium leading-6">
-                                    Password
-                                </label>
-                            </div>
-                            <div className="mt-2">
-                                <input
-                                    id="password"
-                                    name="password"
-                                    type="password"
-                                    autoComplete="current-password"
-                                    required
-                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                />
-                            </div>
-                        </div>
-
-                        <div>
-                            <button
-                                type="submit"
-                                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                onClick={handleSignIn}
-                            >
-                                Sign in
-                            </button>
-                        </div>
-                    </form>
-
-                </div>
-            </div>
+            </MDBContainer>
         </Fragment>
 
     )
