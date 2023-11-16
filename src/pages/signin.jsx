@@ -33,7 +33,12 @@ const Signin = () => {
             setDetail({});
         } catch (error) {
             // Handle error (e.g., display an error message)
-            console.error('API Error:', error);
+            if(error.response.data.message){
+                alert(error.response.data.message[0]);
+            }
+            else if(error.response.data.error){
+                alert(error.response.data.error);
+            }
         }
     };
     return (
@@ -57,7 +62,7 @@ const Signin = () => {
                         <MDBInput wrapperClass='mb-4' label='Password' id='formControlLg' type='password' size="lg" value={detail.password} name="password" onChange={handleChange} />
 
 
-                        <div className='text-center text-md-start mt-4 pt-2'>
+                        <div className='text-center text-md-start mt-4 mb-4 pt-2'>
                             <MDBBtn className="mb-0 px-5" size='lg' onClick={handleSignIn}>Signin</MDBBtn>
                         </div>
 

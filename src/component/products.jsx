@@ -53,13 +53,6 @@ export const Products = () => {
 
   const ShowProducts = () => {
     return <Fragment>
-      <div className="d-flex flex-wrap justify-content-center mb-5">
-        <Button className="btn btn-outline-dark me-2 mt-2" onClick={() => setFilterData(data)}>All</Button>
-        <Button className="btn btn-outline-dark me-2 mt-2" onClick={() => filterProduct("men's clothing")}>Men's Clothing</Button>
-        <Button className="btn btn-outline-dark me-2 mt-2" onClick={() => filterProduct("women's clothing")}>Women's Clothing</Button>
-        <Button className="btn btn-outline-dark me-2 mt-2" onClick={() => filterProduct("jewelery")}>Jewelery</Button>
-        <Button className="btn btn-outline-dark me-2 mt-2" onClick={() => filterProduct("electronics")}>Electronics</Button>
-      </div>
       {
         filterData.map((product) => {
           return (
@@ -92,7 +85,6 @@ export const Products = () => {
 
   return (
     <Fragment>
-      <div class="bg-gray-900 h-full text-white ">
         <div class="container my-4">
           <div class="row">
             <div class="col-12">
@@ -107,7 +99,6 @@ export const Products = () => {
             }
           </div>
         </div>
-      </div>
     </Fragment>
   )
 }
