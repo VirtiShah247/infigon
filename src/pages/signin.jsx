@@ -1,10 +1,12 @@
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Fragment, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Signin = () => {
     const [detail, setDetail] = useState({});
+    const navigate = useNavigate();
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -24,6 +26,7 @@ const Signin = () => {
             // Handle the response data as needed
             console.log('API Response:', response.data.accessToken);
             localStorage.setItem("accessToken", response.data.accessToken);
+            navigate('/getproduct');
 
             // Reset the form after successful API call
             setDetail({});
@@ -47,7 +50,7 @@ const Signin = () => {
                 </div>
 
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form className="space-y-6" action='getproduct' onSubmit={handleSignIn}>
+                    <form className="space-y-6" onSubmit={handleSignIn}>
                         <div>
                             <label htmlFor="phoneNumber" className="block text-sm font-medium leading-6">
                                 Phone number
