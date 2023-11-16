@@ -19,18 +19,23 @@ const Signin = () => {
 
     const handleSignIn = async () => {
         try {
-            const response = await axios.post('https://dev.api.infigon.app/auth/signin-with-phone-and-password', {
-                phoneNumber: detail.phoneNumber,
-                password: detail.password,
-            });
-
-            // Handle the response data as needed
-            console.log('API Response:', response);
-            localStorage.setItem("accessToken", response.data.accessToken);
-            navigate('/getproduct');
-
-            // Reset the form after successful API call
-            setDetail({});
+            if(detail.phoneNumber && detail.password){
+                const response = await axios.post('https://dev.api.infigon.app/auth/signin-with-phone-and-password', {
+                    phoneNumber: detail.phoneNumber,
+                    password: detail.password,
+                });
+    
+                // Handle the response data as needed
+                console.log('API Response:', response);
+                localStorage.setItem("accessToken", response.data.accessToken);
+                navigate('/getproduct');
+    
+                // Reset the form after successful API call
+                setDetail({});
+            }
+            else{
+                alert("Please enter all details.")
+            }
         } catch (error) {
             // Handle error (e.g., display an error message)
             if(error.response.data.message){
@@ -58,8 +63,8 @@ const Signin = () => {
                             <p className="text-center fw-bold mx-3 mb-0">Sign in</p>
                         </div>
 
-                        <MDBInput wrapperClass='mb-4' id='formControlLg' type='tel' size="lg" value={detail.phoneNumber} name="phoneNumber" onChange={handleChange} />
-                        <MDBInput wrapperClass='mb-4' label='Password' id='formControlLg' type='password' size="lg" value={detail.password} name="password" onChange={handleChange} />
+                        <MDBInput wrapperClass='mb-4' id='formControlLg' label = 'Phone number' type='tel' size="lg" value={detail.phoneNumber} name="phoneNumber" onChange={handleChange} required/>
+                        <MDBInput wrapperClass='mb-4' label='Password' id='formControlLg' type='password' size="lg" value={detail.password} name="password" onChange={handleChange} required/>
 
 
                         <div className='text-center text-md-start mt-4 mb-4 pt-2'>
