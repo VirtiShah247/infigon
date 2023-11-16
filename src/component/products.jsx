@@ -8,7 +8,6 @@ import {
   MDBBtn,
   MDBRipple
 } from 'mdb-react-ui-kit';
-import 'react-loading-skeleton/dist/skeleton.css'
 import Button from "react-bootstrap/esm/Button";
 import { Link } from "react-router-dom";
 
